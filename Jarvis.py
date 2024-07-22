@@ -16,7 +16,7 @@ if __name__ == '__main__':
                 print("User: " + current_text)
                 recorder.stop()
                 current_text = current_text + " " + time.strftime("%Y-%m-%d %H-%M-%S")
-                response = assisttest.hey_jarvis()
+                response = assisttest.hey_jarvis(current_text)
                 if response:  # Check if response is not None
                     print(response)
                     speech = response.split('#')[0]
