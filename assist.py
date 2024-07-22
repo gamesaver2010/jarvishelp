@@ -5,8 +5,7 @@ import time
 client = Groq(
     api_key=("api_key"),
 )
-def hey_jarvis():
-    text=input("Hello sir, how can I help you?")   
+def hey_jarvis(text):
     chat_completion = client.chat.completions.create(
         messages=[
             {
@@ -23,8 +22,9 @@ def hey_jarvis():
      model="llama3-8b-8192",
 
         )
-
+    
     print(chat_completion.choices[0].message.content)
+    return chat_completion.choices[0].message.content
 
 def generate_tts(sentence, speech_file_path):
     response = client.audio.speech.create(model="tts-1", voice="echo", input=sentence)
